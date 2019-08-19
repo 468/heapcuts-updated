@@ -8,7 +8,7 @@ The way the code works is as follows:
 
 Splashscreen
 ------------
-Created with Matter.js. This page is shown while the 3D 'heap' model within the three.js scene loads in the background. Once that model has finished loading, physics is activated in the 2D screen and the sprites randomly nudge while a 'start' button appears. On pressing the start button, gravity is enabled, and the letters drop to the ground. The splashscreen then begins to fade out via a CSS transition, with a callback that deletes the splashscreen from the DOM triggered when the transition is finished.
+Created with Matter.js. This page is shown while the 3D 'heap' model within the three.js scene loads in the background. The first 3D players from the main 3D scene are also instantiated in the background. Once the main 3D 'heap' model has finished loading, physics is activated in the 2D screen and the sprites are randomly nudge while a 'start' button appears. On pressing the start button, gravity is enabled in the Matter.js scene, and the letters drop to the ground. The splashscreen then begins to fade out via a CSS transition, with a callback that deletes the splashscreen from the DOM triggered when the transition is finished.
 
 Main 3D Scene
 ------------
