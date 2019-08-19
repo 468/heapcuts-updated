@@ -26,7 +26,7 @@ const createVideoClipElement = async function () {
     next_pending_clip['element'] = configured_element
     next_pending_clip['id'] = configured_element.id
     next_pending_clip['video_choice'] = configured_element.video_choice
-    return (next_pending_clip)
+    return (next_pending_clip);
   } catch (rejectedValue) {
     Error('Unable to preload next video clip; please check connection.')
   }
@@ -38,6 +38,7 @@ const configureVideoClipElement = (element, video_choice) => {
   element.style.width = '560px'
   element.style.height = '315px'
   element.src = './videos/small/' + video_choice
+  element.preload = 'auto';
   return element
 }
 
@@ -67,7 +68,7 @@ const configure3dPlayerModelPosition = (this_3d_object) => {
   this_3d_object.position.z = helpers.randNum(-400, 400)
   this_3d_object.rotation.x = 180
   this_3d_object.rotation.z = helpers.randNum(0, 360)
-  this_3d_object.doubleSided = false
+  this_3d_object.doubleSided = true;
   return (this_3d_object)
 }
 
