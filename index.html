@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>HEAP CUTS</title>
+		<!-- Libraries !-->
+		<script src="./lib/three.min.js"></script>
+		<script src="./lib/GLTFLoader.js"></script>
+		<script src="./lib/physi.js"></script>
+		<script src="./lib/matter.js"></script>
+		<!-- HeapCuts Modules !-->
+		<script src='./js/main.js' type='module'></script>
+		<script src='./js/splashscreen.js' type='module'></script>
+		<script src='./js/3dscene.js' type='module'></script> 
+		<!-- Stylesheet !-->
+		<link rel="stylesheet" type="text/css" href="./css/style.css">
+	</head>
+
+	<body>
+		<!-- SVG Filters !-->
+		<svg xmlns="http://www.w3.org/2000/svg">
+			<filter id="blurFilter">
+				<feDisplacementMap in2="turbulence" in="
+					SourceGraphic" scale="305" xChannelSelector="G" 
+					yChannelSelector="R" result="blr" />
+				<feImage id="feimage" xlink:href="data:image/svg+xml;charset=utf-8;base64,PHN2ZyB3aWR0aD0iNzY5IiBoZWlnaHQ9IjQwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4NCiA8Zz4NCiAgPHRpdGxlPmJhY2tncm91bmQ8L3RpdGxlPg0KICA8cmVjdCBmaWxsPSJub25lIiBpZD0iY2FudmFzX2JhY2tncm91bmQiIGhlaWdodD0iNDAyIiB3aWR0aD0iNzcxIiB5PSItMSIgeD0iLTEiLz4NCiA8L2c+DQogPGc+DQogIDx0aXRsZT5MYXllciAxPC90aXRsZT4NCiAgPHRleHQgdHJhbnNmb3JtPSJtYXRyaXgoMSwwLDAsMSwwLDApICIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgdGV4dC1hbmNob3I9InN0YXJ0IiBmb250LWZhbWlseT0iSGVsdmV0aWNhLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4NCIgaWQ9InN2Z18xIiB5PSIxOTAuNDM3NSIgeD0iMTQ0LjEyNSIgZmlsbC1vcGFjaXR5PSJudWxsIiBzdHJva2Utb3BhY2l0eT0ibnVsbCIgc3Ryb2tlLXdpZHRoPSI5IiBzdHJva2U9IiMwMDAiIGZpbGw9IiMwMDAwMDAiPkhFQVAgQ1VUUzwvdGV4dD4NCiA8L2c+DQo8L3N2Zz4=" x="-200" y="-100"  height="900px"  result="mask" />
+				<feComposite in2="mask" in="blr"  operator="in" result="comp" />
+				<feMerge result="merge">
+					<feMergeNode in="SourceGraphic" />
+					<feMergeNode in="comp" />
+				</feMerge> 
+			</filter>
+		</svg>
+
+		<svg>
+		    <filter id="blurText">
+			    <feGaussianBlur in="SourceGraphic" 
+			    stdDeviation="5" result="blr" />
+			 </filter>
+		</svg>
+		
+		<!-- Splashscreen Cover !-->
+		<div id='cover'>
+			<button id='startbutton'><h1 id='startbuttontext'>START</h1></button>
+		</div>
+		<!-- Three.js Scene Container !-->
+		<div id='three-container'></div>
+		<!-- Credits Popover !-->
+		<div id='credits-button'>ⅈ</div>
+		<div id='credits'><p>BY ALEX TAYLOR & JASON FRIEDMAN</p><p>2015/2019</p></div>
+
+		
+	</body>
+</html>
