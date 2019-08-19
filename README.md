@@ -3,7 +3,8 @@ The HeapCuts (2015) project, updated to meet modern web standards.
 
 
 This is a digital artwork created in collaboration with the musician/artist Jason Friedman.
-Audiovisual players mapped to the textures of 3D player objects fall from the sky piece by piece to randomly create a musical composition without a beginning or an end. Due to the musical nature of the piece, optimization is important; every tick counts, or the players slip out of synchronization.
+Audiovisual players mapped to the textures of 3D player objects fall from the sky piece by piece to randomly create a musical composition without a beginning or an end. Due to the musical nature of the piece, optimization is important; every tick counts, or the players slip out of synchronization. Players are consistently being loaded in the background, so there is no delay when a new one needs to be activated at the start of a new bar.
+
 The way the code works is as follows:
 
 Splashscreen
