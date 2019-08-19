@@ -1,4 +1,3 @@
-
 import * as helpers from './helpers.js'
 import { initThreeWorld, startMainTrackInterval } from './3dscene.js'
 import { initSplashScreenWorld, initiateGravity } from './splashscreen.js'

@@ -1,6 +1,3 @@
-// put all consta and lets together
-// make functions smaller, max 10 lines, single responsability principle
-
 import * as helpers from './helpers.js'// workers
 import { activateStartButton } from './main.js' // this is called when model is loaded.
 
@@ -143,7 +140,6 @@ const startWorker = () => {
 }
 
 export const startMainTrackInterval = () => {
-  activateNextVideoObject()
   setInterval(function () {
     // To keep sense of musical pace, only drop object is it is first bar, or from then on if bar count is divisible by two
     if (bar_counter == 1 || ((bar_counter % 2 !== 0))) {
@@ -151,6 +147,7 @@ export const startMainTrackInterval = () => {
     };
     bar_counter += 1
   }, one_bar)
+  activateNextVideoObject()
 }
 
 export const initThreeWorld = () => {
