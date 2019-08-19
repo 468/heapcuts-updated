@@ -9,11 +9,11 @@ The way the code works is as follows:
 
 Splashscreen
 ------------
-Powered by Matter.js. This page is shown while the 3D .gltf (previously .json) scene model within the three.js scene loads in the background. The first 3D players from the main 3D scene are also instantiated in the background. Once the main 3D scene model has finished loading, physics is activated on the 2D screen and the sprites are randomly nudge while a 'start' button appears. On pressing the start button, gravity is enabled in the Matter.js scene, and the letters drop to the ground. The splashscreen then begins to fade out via a CSS transition, with a callback that deletes the splashscreen from the DOM triggered when the transition is finished.
+Scene powered by Matter.js. This page is shown while the 3D .gltf (previously .json) scene model within the three.js scene loads in the background. The first 3D players from the main 3D scene are also instantiated in the background. Once the main 3D scene model has finished loading, physics is activated on the 2D screen and the sprites are randomly nudge while a 'start' button appears. On pressing the start button, gravity is enabled in the Matter.js scene, and the letters drop to the ground. The splashscreen then begins to fade out via a CSS transition, with a callback that deletes the splashscreen from the DOM triggered when the transition is finished.
 
 Main 3D Scene
 ------------
-The timeline of operations of the 3D scene is as follows:
+Scene powered by Three.js. The timeline of operations of the 3D scene is as follows:
 1) A HTML5 video player element is created, and has a random clip assigned to it.
 2) Once this player is created, a 3D player object is created via three.js, and the video element is mapped to one of its sides as a videp texture.
 3) Once this has been created, it is then placed in the scene behind the camera, giving the video time to load.
