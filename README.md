@@ -1,7 +1,7 @@
 # heapcuts-updated
 The HeapCuts (2015) project, updated to meet modern web standards.
 
-This is a digital artwork originally created in collaboration with the musician/artist Jason Friedman in 2015, who contributed to the concept of the piece and created all of the audio. Updates to Three.js (and ECMAScript in general) have allowed me to recode this piece from the ground up to be far more stable and efficient than it was before.
+This is a digital artwork originally created in collaboration with the musician/artist Jason Friedman in 2015, who contributed to the concept of the piece and created all of the audio. As of 2019, updates to Three.js (and ECMAScript in general) have allowed me to recode this piece from the ground up to be far more stable and efficient than it was before.
 
 Audiovisual players mapped to the textures of 3D player objects fall from the sky piece by piece to randomly create a musical composition without a beginning or an end. Due to the musical nature of the piece, optimization is important; every tick counts, or the players slip out of synchronization. Players are consistently being loaded in the background, so there is no delay when a new one needs to be activated at the start of a new bar.
 
