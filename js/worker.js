@@ -1,3 +1,4 @@
+/* Worker for the camera, which slowly rotates around the scene while rising upwards */
 self.addEventListener('message', function (e) {
   const data = e.data
   const x = data.x

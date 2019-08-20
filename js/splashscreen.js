@@ -22,6 +22,7 @@ const render = Render.create({
   }
 })
 
+/* Assign each title letter to its corresponding sprite image, and position in the matter.js scene */
 const title_sprites = ['h', 'e', 'a', 'p', 'c', 'u', 't', 's'].map((val, index, arr) => {
   const x_position = (index <= 3) ? (windowwidth / 7.5) * (index + 2) : (windowwidth / 7.5) * (index - 2)
   const y_position = (index <= 3) ? title_first_row_position : title_second_row_position // determines which row; /4 for first, /1.8 for second.
@@ -36,6 +37,7 @@ const title_sprites = ['h', 'e', 'a', 'p', 'c', 'u', 't', 's'].map((val, index, 
   })
 })
 
+/* Trigger gravity in the scene (including start button interaction gravity) to indicate three.js scene has loaded */
 export const initiateGravity = () => {
   title_sprites.forEach((num, index) => {
     Matter.Body.applyForce(title_sprites[index], { x: 0.01, y: 0.1 }, { x: helpers.randPlusOrMinus(0.01), y: helpers.randPlusOrMinus(0.01) })
@@ -48,6 +50,8 @@ export const initiateGravity = () => {
   }, false)// capturing or bubbling phase
 }
 
+
+/* Function to load the mater.js scene, exported to main.js where it is loaded immediately */
 export const initSplashScreenWorld = () => {
   World.add(engine.world, [title_sprites, ground].flat())
   engine.world.gravity.y = 0

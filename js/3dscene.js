@@ -17,6 +17,8 @@ let count = 0
 for (const [i, v] of clips.entries()) { clips[i] = i + 1 + '.mp4' }
 camera.position.set(155, 1250, 500)
 
+
+/* Pick a random video clip and create a video element in the DOM */
 const createVideoClipElement = async function () {
   try {
     const next_pending_clip = {}
@@ -32,6 +34,7 @@ const createVideoClipElement = async function () {
   }
 }
 
+/* Set the size and id of the video element, as called in createVideoClipElement() */
 const configureVideoClipElement = (element, video_choice) => {
   element.id = count
   element.style.border = '0px'
@@ -42,9 +45,11 @@ const configureVideoClipElement = (element, video_choice) => {
   return element
 }
 
+/* Create the 3D mesh and assign the video element to one of its sides as a texture */
 const create3dPlayerModel = async function (clip_object) {
   try {
     const vid_texture = new THREE.VideoTexture(clip_object.element)
+    /* Blank dummy material assigned to the non-video texture sides of the mesh */
     const dummyMaterialArray = Array.from({ length: 5 }).map((val, index, arr) => {
       if (index == 4) {
         return new THREE.MeshBasicMaterial({ map: vid_texture, side: THREE.FrontSide })
@@ -58,9 +63,11 @@ const create3dPlayerModel = async function (clip_object) {
     const object_model_with_video_texture = { video_clip: clip_object, object: configure3dPlayerModelPosition(object_model) }
     return (object_model_with_video_texture)
   } catch (rejectedValue) {
-    Error('Unable to preload next 3d object; please check connection.')
+      Error('Unable to preload next 3d object; please check connection.')
   }
 }
+
+/* Place the 3d model behind the camera Y position, so it loads out of frame */
 const configure3dPlayerModelPosition = (this_3d_object) => {
   const camera_height = camera.position.y
   this_3d_object.position.x = helpers.randNum(-400, 400)
@@ -77,12 +84,17 @@ const addPlayerToQueue = (player_object) => {
   count += 1
 }
 
+/* Main function for creating 3D video meshes; asynchronously creates video DOM element, 
+then the 3d model, then finally adds it to the queue of completed 3D video meshes */
 const createNextVideoObject = () => {
   createVideoClipElement()
     .then(video_clip_element => create3dPlayerModel(video_clip_element))
     .then(player_3d_object => addPlayerToQueue(player_3d_object))
 }
 
+
+/* Triggers the playing of the next 3D video mesh objedt, called in time from
+startMainTrackInterval() */
 const activateNextVideoObject = () => {
   const next_object = player_queue.shift()
   next_object['video_clip']['element'].play()
@@ -129,6 +141,7 @@ const loadGroundModel = (scene) => {
   )
 }
 
+/* Worker for the camera, which slowly rotates around the scene while rising upwards */
 const startWorker = () => {
   camera_angle_worker.addEventListener('message', function (e) {
     const data = e.data
@@ -140,6 +153,7 @@ const startWorker = () => {
   }, false)
 }
 
+/* Main track loop; a new piece of the composition is introduced every bar, as assigned on line 7 */
 export const startMainTrackInterval = () => {
   setInterval(function () {
     // To keep sense of musical pace, only drop object is it is first bar, or from then on if bar count is divisible by two
@@ -151,6 +165,7 @@ export const startMainTrackInterval = () => {
   activateNextVideoObject()
 }
 
+/* Scene init function */
 export const initThreeWorld = () => {
   scene.setGravity(new THREE.Vector3(0, -500, 0))
   scene.add(createGroundMaterial())
