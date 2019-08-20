@@ -6,7 +6,9 @@ Audiovisual players mapped to the textures of 3D player objects fall from the sk
 This is a digital artwork originally created in collaboration with the musician/artist Jason Friedman in 2015, who contributed to the concept of the piece and created all of the audio for the project. As of 2019, updates to Three.js (and ECMAScript in general) have allowed me to recode this piece from the ground up to be far more stable and efficient than it was before. As the piece is ideally to be read as an 'artwork' rather than a tech-demo, the technical reliability of the experience created is important; the front-end technology on display should ideally slip into the background of the work, powering it without overshadowing it (or worse, crashing). The project has also been designed to be easy to maintain; adding extra audio tracks, for example, is simply a matter of changing one digit (number_of_clips, line 8 in 3d_scene.js) assuming the new video files are titled numerically and in the correct location.
 
 ./main - My JavaScript code
+
 ./lib - External libraries
+
 ./models - 3D models loaded in the scene
 
 The way the code works is as follows:
